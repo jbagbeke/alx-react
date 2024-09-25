@@ -3,7 +3,7 @@
     font-weight: bold;
 }
 
-#logo {
+div#logo {
     width: 200px;
     height: 200px;
     background-image: ('../assets/holberton-logo.jpg');
