@@ -19,8 +19,9 @@ module.exports = {
                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                type: 'asset/resource',
                use: [
+                "file-loader",
                 {
-                    loader: ['file-loader', 'image-webpack-loader'],
+                    loader: "image-webpack-loader",
                     options: {
                         bypassingOnDebug: true,
                         disable: true,
