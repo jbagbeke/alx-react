@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
     mode: 'production',
-    devtool: false,
     entry: {
         bundle: path.resolve('./js/dashboard_main.js'),
     },
