@@ -1,0 +1,45 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.App-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid crimson;
+  padding-bottom: 1rem;
+}
+
+.App-header img {
+  width: 20%;
+  height: 20%;
+}
+
+.App-header h1 {
+  justify-self: end;
+  margin-left: 1rem;
+  color: crimson;
+}
+
+.App-body {
+  align-items: center;
+}
+
+.App-footer {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 4px solid crimson;
+}
+
