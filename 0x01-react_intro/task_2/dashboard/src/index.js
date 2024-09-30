@@ -8,10 +8,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <StrictMode>
-        <App />
         <div className='root-notifications'>
             <Notify />
         </div>
+        <App />
     </StrictMode>
 )
 
