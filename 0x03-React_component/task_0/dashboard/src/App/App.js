@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header/Header.js';
-import  Login from './Login/Login.js';
-import Footer from './Footer/Footer.js';
-import Notify from './Notifications.js';
-import CourseList from './CourseList/CourseList.js';
+import Header from '../Header/Header.js';
+import  Login from '../Login/Login.js';
+import Footer from '../Footer/Footer.js';
+import Notify from '../Notifications.js';
+import CourseList from '../CourseList/CourseList.js';
 import './App.css';
 
 
