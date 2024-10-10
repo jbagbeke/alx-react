@@ -5,6 +5,15 @@ import PropType from 'prop-types';
 import NotificationItemShape from "./NotificationItemShape.js";
 
 export default class Notify extends Component {
+    constructor(props) {
+        super(props);
+        this.markAsRead = this.markAsRead.bind(this);
+
+    }
+    markAsRead(id) {
+        console.log(`Notification ${id} has been marked as read`)
+    }
+
     render() {
         const { listNotifications, displayDrawer } = this.props;
 
@@ -20,6 +29,7 @@ export default class Notify extends Component {
                     type={element.type}
                     value={element.value}
                     html={element.html}
+                    markAsRead={this.markAsRead}
                 />
             })
         }

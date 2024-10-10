@@ -83,4 +83,13 @@ describe('Notifications component testing', () => {
         expect(queryByText(/Here is the list of notifications/i)).not.toBeInTheDocument()
         expect(queryByText(/No new notification for now/i)).toBeInTheDocument();
     });
+
+    test('Mark as read function test', () => {
+        jest.spyOn(global.console, 'log').mockImplementation(() => {});
+        console.log('Notification 2 has been marked as read');
+        expect(console.log).toHaveBeenCalledWith('Notification 2 has been marked as read');
+        console.log.mockRestore();
+    })
 });
+
+

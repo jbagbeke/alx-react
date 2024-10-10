@@ -9,6 +9,7 @@ export default class NotificationItem extends Component {
         <li
             data-notification-type={props.type || null}
             dangerouslySetInnerHTML={props.html ? props.html : undefined}
+            onClick={() => props.markAsRead()}
         >
             {!props.html && props.value ? props.value : null}
         </li>
@@ -21,9 +22,11 @@ NotificationItem.propTypes = {
         __html: PropType.string
     }),
     type: PropType.string,
-    value: PropType.string
+    value: PropType.string,
+    markAsRead: PropType.func
 }
 
 NotificationItem.defaultProps = {
-    type: 'default'
+    type: 'default',
+    markAsRead: () => {}
 }

@@ -36,8 +36,6 @@ export default class App extends Component {
       {id: 2, name: 'Webpack', credit: 20},
       {id: 3, name: 'React', credit: 40}
     ]
-
-    console.log(listCourses)
     const screenToDisplay = () => {
       if (this.isLoggedIn)
         return <CourseList listCourses={listCourses}/>
