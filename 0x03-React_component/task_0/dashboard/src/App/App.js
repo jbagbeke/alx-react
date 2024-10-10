@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header.js';
 import  Login from '../Login/Login.js';
 import Footer from '../Footer/Footer.js';
-import Notify from '../Notifications.js';
+import Notify from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList.js';
 import './App.css';
 
@@ -14,7 +14,7 @@ export default class App extends Component {
     super(props);
     this.isLoggedIn = props.isLoggedIn;
     this.logOut = props.logOut;
-    }
+  }
 
   componentDidMount() {
     document.addEventListener('keydown', (event) => {
@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown')
+    document.removeEventListener('keydown', this.logOut)
   }
 
   render() {
@@ -36,6 +36,8 @@ export default class App extends Component {
       {id: 2, name: 'Webpack', credit: 20},
       {id: 3, name: 'React', credit: 40}
     ]
+
+    console.log(listCourses)
     const screenToDisplay = () => {
       if (this.isLoggedIn)
         return <CourseList listCourses={listCourses}/>

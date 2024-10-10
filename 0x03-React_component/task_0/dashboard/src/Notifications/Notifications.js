@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Notifications.css';
 import NotificationItem from "./NotificationItem.js";
 import PropType from 'prop-types';
-import NotificationItemShape from "./Notifications/NotificationItemShape.js";
+import NotificationItemShape from "./NotificationItemShape.js";
 
 export default class Notify extends Component {
     render() {
