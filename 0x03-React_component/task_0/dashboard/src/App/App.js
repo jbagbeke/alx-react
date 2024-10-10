@@ -19,10 +19,15 @@ export default class App extends Component {
   componentDidMount() {
     document.addEventListener('keydown', (event) => {
       if (event.ctrlKey && (event.key === 'h' || event.key === 'H')) {
+        event.preventDefault();
         alert('Logging you out');
         this.logOut();
       }
     })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown')
   }
 
   render() {
