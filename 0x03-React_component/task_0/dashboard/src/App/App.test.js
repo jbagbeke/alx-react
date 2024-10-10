@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import App from './App';
 import '@testing-library/jest-dom';
 
@@ -40,14 +40,28 @@ describe('App component tests', () => {
 
 
 describe('When isLoggedIn is True', () => {
+    beforeAll (() => {
+        window.alert = jest.fn();
+    })
+
+    afterAll(() => {
+        window.alert.mockRestore();
+    })
+
     test('Login not displayed', () => {
         const { queryByText } = render(<App isLoggedIn={true} />)
         expect(queryByText(/Login to access the full dashboard/i)).not.toBeInTheDocument()
     })
 
     test('Component List rendered', () => {
-        const { getByRole } = render(<App isLoggedIn={true} />)
+        const { getByRole } = render(<App isLoggedIn={true} oney />)
         expect(getByRole('table')).toBeInTheDocument()
+    })
+
+    test('registered key presses', () => {
+        const { container } = render(<App isLoggedIn={true} />)
+        fireEvent.keyDown(container, {key: 'H', ctrlKey: true});
+        expect(window.alert).toHaveBeenCalledWith('Logging you out');
     })
 })
 

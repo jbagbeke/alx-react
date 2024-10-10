@@ -10,19 +10,32 @@ import './App.css';
 
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.isLoggedIn = props.isLoggedIn;
+    this.logOut = props.logOut;
+    }
+
+  componentDidMount() {
+    document.addEventListener('keydown', (event) => {
+      if (event.ctrlKey && (event.key === 'h' || event.key === 'H')) {
+        alert('Logging you out');
+        this.logOut();
+      }
+    })
+  }
+
   render() {
     const listCourses = [
       {id: 1, name: 'ES6', credit: 60},
-      {id: 1, name: 'Webpack', credit: 20},
-      {id: 1, name: 'React', credit: 40}
+      {id: 2, name: 'Webpack', credit: 20},
+      {id: 3, name: 'React', credit: 40}
     ]
-    const { isLoggedIn } = this.props;
     const screenToDisplay = () => {
-      if (isLoggedIn)
+      if (this.isLoggedIn)
         return <CourseList listCourses={listCourses}/>
       return <Login />
     }
-    
     return (
       <>
         <Notify />
@@ -38,9 +51,11 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
 }
 
 App.defaultProps = {
-  isLoggedIn: false
+  isLoggedIn: false,
+  logOut: () => {}
 }
