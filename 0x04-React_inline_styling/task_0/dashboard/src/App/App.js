@@ -5,6 +5,9 @@ import  Login from '../Login/Login.js';
 import Footer from '../Footer/Footer.js';
 import Notify from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList.js';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom.js';
+import BodySection from '../BodySection/BodySection.js';
+import WithLogging from '../HOC/WithLogging.js';
 import './App.css';
 
 
@@ -36,17 +39,32 @@ export default class App extends Component {
       {id: 2, name: 'Webpack', credit: 20},
       {id: 3, name: 'React', credit: 40}
     ]
+    const LoginWrap = WithLogging(Login)
+    const CourseListWrap = WithLogging(CourseList)
+  
     const screenToDisplay = () => {
-      if (this.isLoggedIn)
-        return <CourseList listCourses={listCourses}/>
-      return <Login />
+      if (this.props.isLoggedIn)
+        return (
+          <BodySectionWithMarginBottom title="Course list">
+            <CourseListWrap listCourses={listCourses} />
+          </BodySectionWithMarginBottom>
+        )
+      return (
+        <BodySectionWithMarginBottom title="Log in to continue">
+          <LoginWrap />
+        </BodySectionWithMarginBottom>
+      )
     }
+
     return (
       <>
         <Notify />
         <div className='App'>
           <Header />
           {screenToDisplay()}
+          <BodySection title="News from the School">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore.</p>
+          </BodySection>
           <Footer />
         </div>
       </>

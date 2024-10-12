@@ -11,13 +11,13 @@ describe('Notifications component testing', () => {
     });
 
     test('UL list present in render', () => {
-        const { getByText } = render(<Notify displayDrawer={true} listNotifications={[{type: "default", value: "testByJBA"}]} />);
+        const { getByText } = render(<Notify displayDrawer={true} listNotifications={[{id: 1, type: "default", value: "testByJBA"}]} />);
         const ulElement = getByText(/testByJBA/i);
         expect(ulElement).toBeInTheDocument();
     });
     
     test('Dangerouse HTML set in render', () => {
-        const { getByText } = render(<Notify displayDrawer={true} listNotifications={[{type: "default", html: {__html: "<u>testJBA</u>"}}]} />);
+        const { getByText } = render(<Notify displayDrawer={true} listNotifications={[{id: 1, type: "default", html: {__html: "<u>testJBA</u>"}}]} />);
         const htmlElement = getByText(/testJBA/i);
         expect(htmlElement).toBeInTheDocument();
     });

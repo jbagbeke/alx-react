@@ -5,6 +5,9 @@ import  Login from '../Login/Login.js';
 import Footer from '../Footer/Footer.js';
 import Notify from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList.js';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom.js';
+import BodySection from '../BodySection/BodySection.js';
+import WithLogging from '../HOC/WithLogging.js';
 import './App.css';
 
 
@@ -38,15 +41,30 @@ export default class App extends Component {
     ]
     const screenToDisplay = () => {
       if (this.isLoggedIn)
-        return <CourseList listCourses={listCourses}/>
-      return <Login />
+        return (
+          <BodySectionWithMarginBottom title="Course list">
+            <CourseList listCourses={listCourses}/>
+          </BodySectionWithMarginBottom>
+        )
+      return (
+        <BodySectionWithMarginBottom title="Log in to continue">
+          <Login />
+        </BodySectionWithMarginBottom>
+      )
     }
+
     return (
       <>
         <Notify />
         <div className='App'>
           <Header />
           {screenToDisplay()}
+          <BodySection title="News from the School">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore.</p>
+          </BodySection>
+          
+          <br />
+          <p>Component Logging </p>
           <Footer />
         </div>
       </>
