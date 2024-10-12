@@ -1,18 +1,9 @@
 import { render } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import CourseList from "./CourseList.js";
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Course List Tests', () => {
-
     test('Renders without crash', () => {
         render(<CourseList />)
         expect(true).toBe(true);

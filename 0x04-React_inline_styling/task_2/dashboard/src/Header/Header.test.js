@@ -1,18 +1,8 @@
 import { screen, render } from "@testing-library/react";
 import Header from './Header.js';
 import '@testing-library/jest-dom';
-import { StyleSheetTestUtils } from 'aphrodite';
-
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Header Component Tests', () => {
-
     test('Renders without crashing', () => {
         render(<Header />);
         expect(true).toBe(true);

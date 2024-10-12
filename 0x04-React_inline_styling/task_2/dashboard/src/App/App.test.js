@@ -1,23 +1,13 @@
 import { render, fireEvent } from "@testing-library/react";
 import App from './App';
 import '@testing-library/jest-dom';
-import { StyleSheetTestUtils } from 'aphrodite';
 
 
 /* eslint testing-library/no-container: 0 */
 /* eslint testing-library/no-node-access: 0 */
-beforeAll (() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-    window.alert = jest.fn();
-})
 
-afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-    window.alert.mockRestore();
-})
 
 describe('App component tests', () => {
-
     test('Renders without crash', () => {
         render(<App />);
         expect(true).toBe(true);
@@ -50,6 +40,14 @@ describe('App component tests', () => {
 
 
 describe('When isLoggedIn is True', () => {
+    beforeAll (() => {
+        window.alert = jest.fn();
+    })
+
+    afterAll(() => {
+        window.alert.mockRestore();
+    })
+
     test('Login not displayed', () => {
         const { queryByText } = render(<App isLoggedIn={true} />)
         expect(queryByText(/Login to access the full dashboard/i)).not.toBeInTheDocument()

@@ -2,18 +2,9 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WithLogging from './WithLogging';
 import Login from '../Login/Login';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('HOC Components Tests', () => {
-
     test('Console.log called when component mounts/unmounts', () => {
         jest.spyOn(global.console, 'log');
         const testComponent = () => <div>Test Component</div>;

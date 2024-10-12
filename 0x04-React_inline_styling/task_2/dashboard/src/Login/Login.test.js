@@ -1,18 +1,9 @@
 import Login from './Login.js';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Login Tests', () => {
-
     test('Renders without crashing', () => {
         render(<Login />);
         expect(true).toBe(true);

@@ -1,16 +1,7 @@
 import { getFullYear, getFooterCopy, getLatestNotification } from "./utils.js";
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Utils Functions', () => {
-
     test('GetFullYear Check', () => {
         expect(getFullYear()).toEqual(2024)
     });

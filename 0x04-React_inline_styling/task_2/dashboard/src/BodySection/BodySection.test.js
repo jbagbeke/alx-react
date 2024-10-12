@@ -1,18 +1,9 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import BodySection from './BodySection';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('BodySection Rendering Tests', () => {
-
     test('Component renders children and elements', () => {
         const { getAllByRole } = render(
             <BodySection title="test title">

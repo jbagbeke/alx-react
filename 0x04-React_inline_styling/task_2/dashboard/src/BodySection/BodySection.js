@@ -1,6 +1,5 @@
 import { Component } from "react";
 import PropTypes from 'prop-types';
-import { StyleSheet, css } from "aphrodite";
 
 
 export default class BodySection extends Component {

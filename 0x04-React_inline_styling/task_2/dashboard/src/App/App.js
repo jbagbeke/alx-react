@@ -59,13 +59,13 @@ export default class App extends Component {
     return (
       <>
         <Notify />
-        <div>
+        <div className={css(AppStyles.body)}>
           <Header />
           {screenToDisplay()}
-          <BodySection className={css(AppStyles.body)} title="News from the School">
+          <BodySection title="News from the School">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore.</p>
           </BodySection>
-          <Footer className={css(AppStyles.footer)}/>
+          <Footer />
         </div>
       </>
   
@@ -87,9 +87,6 @@ App.defaultProps = {
 const AppStyles = StyleSheet.create({
   body: {
     backgroundColor: 'lightgreen'
-  },
-  footer: {
-    border: '3px solid crimson'
   }
   
 })

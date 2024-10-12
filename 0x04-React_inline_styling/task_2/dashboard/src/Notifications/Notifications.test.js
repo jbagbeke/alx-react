@@ -1,15 +1,7 @@
 import { render } from '@testing-library/react';
 import Notify from './Notifications.js';
 import '@testing-library/jest-dom';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Notifications component testing', () => {
     test('Renders without crashes', () => {

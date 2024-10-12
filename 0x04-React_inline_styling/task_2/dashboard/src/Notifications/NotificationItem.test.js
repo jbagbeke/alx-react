@@ -2,18 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Notify from './Notifications.js';
 import NotificationItem from './NotificationItem.js';
 import '@testing-library/jest-dom';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('Notifications component testing', () => {
-
     test('Renders without crashes', () => {
         render(<Notify />);
         expect(true).toBe(true);

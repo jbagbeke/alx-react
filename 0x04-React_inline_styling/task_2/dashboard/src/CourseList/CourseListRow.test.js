@@ -1,18 +1,9 @@
 import CourseListRow from './CourseListRow.js';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('CourseList Tests', () => {
-
     test('Renders with 2 colSpan when isHeader is true', () => {
         const { getByRole } = render(<table>
             <thead>

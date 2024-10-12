@@ -1,18 +1,10 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
-import { StyleSheetTestUtils } from 'aphrodite';
+import BodySection from './BodySection';
 
-beforeAll(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
-
-afterAll(() => {
-  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});
 
 describe('BodySectionWithMarginBottom Tests', () => {
-
     test('Renders correctly children and props', () => {
         const { getAllByRole } = render(
             <BodySectionWithMarginBottom title="Margin Bottom title">

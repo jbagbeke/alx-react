@@ -15,7 +15,7 @@ export default class NotificationItem extends PureComponent {
         </li>
         )
     }
-} 
+}
 
 NotificationItem.propTypes = {
     html: PropType.shape({
