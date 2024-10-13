@@ -1,5 +1,6 @@
 import { PureComponent } from "react";
 import PropType from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 
 export default class NotificationItem extends PureComponent {
@@ -10,6 +11,7 @@ export default class NotificationItem extends PureComponent {
             data-notification-type={props.type || null}
             dangerouslySetInnerHTML={props.html ? props.html : undefined}
             onClick={() => props.markAsRead()}
+            className={props.type === 'urgent' ? css(styles.urgent): css(styles.default)}
         >
             {!props.html && props.value ? props.value : null}
         </li>
@@ -30,3 +32,12 @@ NotificationItem.defaultProps = {
     type: 'default',
     markAsRead: () => {}
 }
+
+const styles = StyleSheet.create({
+    default: {
+        backgroundColor: 'blue'
+    },
+    urgent: {
+        backgroundColor: 'red'
+    }
+})

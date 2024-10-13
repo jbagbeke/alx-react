@@ -45,7 +45,7 @@ export default class Notify extends Component {
         const displayNotifications = () => {
             if (displayDrawer) {
                 return (
-                <div className={css(NotificationStyles.Notifications)}>
+                <div className={css(styles.Notifications)}>
                     { (listNotifications && listNotifications.length) && <p>Here is the list of notifications</p> }
                     <button
                     aria-label="Close"
@@ -56,7 +56,7 @@ export default class Notify extends Component {
                         bottom: '1em',
                         left: '95%',
                     }}>&times;</button>
-                    <ul className={css(NotificationStyles.NotificationsLi, NotificationStyles.NotificationsLiPriority)}>{notificationLists()}</ul>
+                    <ul className={css(styles.NotificationsLi, NotificationStyles.NotificationsLiPriority)}>{notificationLists()}</ul>
                 </div>)
             }
             return <></>
@@ -80,7 +80,7 @@ Notify.defaultProps = {
     listNotifications: []
 }
 
-const NotificationStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     Notifications: {
         border: '3px dotted crimson',
         padding: '5px',

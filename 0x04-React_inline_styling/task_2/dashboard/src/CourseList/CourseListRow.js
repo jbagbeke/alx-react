@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 
 export default class CourseListRow extends Component {
@@ -7,29 +8,21 @@ export default class CourseListRow extends Component {
         const { isHeader, textFirstCell, textSecondCell } = this.props;
 
         const content = () => {
-
             if (isHeader) {
-                const headerStyle = {
-                    backgroundColor: '#deb5b545'
-                }
-
                 if (!textSecondCell)
-                    return <th style={headerStyle} colSpan={2}>{textFirstCell}</th>
+                    return <th className={css(styles.header)} style={headerStyle} colSpan={2}>{textFirstCell}</th>
                 return (
                     <>
-                        <th style={headerStyle} >{textFirstCell}</th>
-                        <th style={headerStyle} >{textSecondCell}</th>
+                        <th className={css(styles.header)} style={headerStyle} >{textFirstCell}</th>
+                        <th className={css(styles.header)} style={headerStyle} >{textSecondCell}</th>
                     </>
                 )
             }
 
-            const rowStyle = {
-                backgroundColor: '#f5f5f5ab',
-            }
             return (
                 <>
-                    <td style={rowStyle}>{textFirstCell}</td>
-                    <td style={rowStyle}>{textSecondCell}</td>
+                    <td className={css(styles.default)} style={rowStyle}>{textFirstCell}</td>
+                    <td className={css(styles.default)} style={rowStyle}>{textSecondCell}</td>
                 </>
             )
         }
@@ -47,3 +40,12 @@ CourseListRow.propTypes = {
 CourseListRow.defaultProps = {
     textSecondCell: null
 }
+
+const styles = StyleSheet.create({
+    default: {
+        backgroundColor: '#f5f5f5ab'
+    },
+    header: {
+        backgroundColor: '#deb5b545'
+    }
+})
