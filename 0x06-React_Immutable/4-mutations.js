@@ -9,4 +9,4 @@ export const map = Map({
     6: 'Lucas',
 })
 
-export const map2 = map.setIn([2], 'Benjamin').setIn([4], 'Olivia')
+export const map2 = map.withMutations((mp) => mp.set('2', 'Benjamin').set('4', 'Oliver'))
