@@ -10,3 +10,7 @@ export const map = Map({
 })
 
 export const map2 = map.withMutations((mp) => mp.set(2, 'Benjamin').set(4, 'Oliver'))
+
+map2.forEach((v, k) => console.log(k, ' ------ ', v))
+
+console.log(map2.get('2'))
